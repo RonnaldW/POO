@@ -16,13 +16,11 @@ public class Data {
     Data(int d, int m, int a){
         this.dia = d;
         this.mes = m;
-        this.ano = a;    
+        this.ano = a;
+        
     }
     
     void imprimir(){
         System.out.println(dia + "/" +mes+ "/" +ano);
     }
-    
-    
-    
 }
