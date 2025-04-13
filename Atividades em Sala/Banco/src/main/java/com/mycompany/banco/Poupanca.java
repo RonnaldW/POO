@@ -14,36 +14,13 @@ public class Poupanca extends Conta{
         super(n, t, c, g); // Passa os parâmetros corretos para o construtor da classe pai
     }
     
-    double disponivel(){
-        return this.saldo;
-    }
-    
     void extrato(){
-        System.out.println("*** EXTRATO DA CONTA ***");
-        System.out.println("Conta: " + this.numero);
-        System.out.println("Saldo disponível para saque: " + this.disponivel() + "\n");
+        System.out.println("ESTRATO DA CONTA POUPANCA");
+        super.extrato();
     }
     
-    void sacar(double valor) {
-    if (valor <= this.disponivel()) {
-        System.out.println("Saque de " + valor + " realizado com sucesso.");
-        this.saldo -= valor;
-        System.out.println("Novo saldo: R$" + this.saldo);
-    }else {
-        System.out.println(" Erro: não foi possível sacar R$" + valor);
-        System.out.println(" Valor disponível para saque: R$" + this.disponivel());
+    void rendimentos(double juros){
+        this.saldo = this.saldo + (juros*this.saldo)/100;
     }
-    }
-    
-    void transferir(double valor, Conta destino) {
-        if (valor <= this.disponivel()) {
-            this.sacar(valor);
-            destino.depositar(valor);
-            System.out.println("Transferencia de R$" + valor + " realizado com sucesso.");
-            System.out.println("Origem: " + this.numero + " - Destino: " + destino.numero);
-        } else {
-            System.out.println("Erro: não foi possível transferir R$" + valor);
-            System.out.println("Valor disponivel para transferencia: R$" + this.disponivel());
-        }
-    }
+        
 }

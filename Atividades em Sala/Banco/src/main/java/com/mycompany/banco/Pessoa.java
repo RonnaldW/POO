@@ -8,11 +8,30 @@ package com.mycompany.banco;
  *
  * @author Ronnald
  */
+
+import java.util.Scanner;
+
 public class Pessoa {
     String nome ;
     Data dtNasc ;
     char sexo ;
     String cpf ;
+    
+    Pessoa(){
+        Scanner s = new Scanner(System.in);
+        
+        System.out.printf("Digite o nome: ");
+        this.nome = s.nextLine();
+        
+        System.out.printf("Digite o cpf: ");
+        this.cpf = s.nextLine();    
+        
+        System.out.printf("Data de Nascimento: ");
+        this.dtNasc = new Data();
+        
+        System.out.printf("Informe o sexo: ");
+        this.sexo = s.nextLine().charAt(0);
+    }
     
     
     Pessoa(String n, Data dt, char s, String c){
@@ -39,13 +58,13 @@ public class Pessoa {
     void aniversario(){
         this.idade = this.idade + 1;
     }
-    */
+
     
     void atribuiCPF(String c){
         this.cpf = c;
     }
     
-    /*
+
     int getIdade(){
         return this.idade ;
     }

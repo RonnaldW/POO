@@ -8,18 +8,39 @@ package com.mycompany.banco;
  *
  * @author Ronnald
  */
-public class Gerente extends Pessoa{
-    String mat;
+
+import java.util.Scanner;
+
+public class Gerente extends Funcionario{
     String senha;
+       
+    public Gerente() {
+        super(); // Chama o construtor padrão de Funcionario
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.printf("Digite a senha: ");
+        this.senha = s.nextLine();
+    }
     
-    public Gerente(String nome, String cpf, Data d, char s, String mat, String p){
-        super(nome, d, s, cpf); // Ordem correta dos parâmetros
-        this.mat = mat;
-        this.senha = p;
+    public Gerente(String senha, String nome, Data dtNasc, char sexo, String cpf, String matricula, double salario) {
+        super(nome, dtNasc, sexo, cpf, matricula, salario);
+        this.senha = senha;
+    }
+    
+    double bonificacao(){
+        return this.salario*0.15;
     }
     
     boolean validarAcesso(String s){
         return s.equals(this.senha);
+    }
+    
+    boolean validarAcesso(){
+        Scanner s = new Scanner(System.in);
+        System.out.printf("Digite a senha: ");
+        String pwd = s.nextLine();
+        return this.validarAcesso(pwd);
     }
     
 }
