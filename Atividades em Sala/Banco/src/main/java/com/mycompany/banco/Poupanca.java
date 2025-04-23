@@ -10,17 +10,17 @@ package com.mycompany.banco;
  */
 public class Poupanca extends Conta{
     
-    Poupanca(String n, Pessoa t, Data c, Gerente g){
+    public Poupanca(String n, Pessoa t, Data c, Gerente g){
         super(n, t, c, g); // Passa os parâmetros corretos para o construtor da classe pai
     }
     
-    void extrato(){
-        System.out.println("ESTRATO DA CONTA POUPANCA");
+    public void extrato(){
+        System.out.println("EXTRATO DA CONTA POUPANCA");
         super.extrato();
     }
     
-    void rendimentos(double juros){
-        this.saldo = this.saldo + (juros*this.saldo)/100;
+    public void rendimentos(double juros){
+        this.setSaldo(this.getSaldo() + (juros * this.getSaldo()) / 100);
     }
         
 }

@@ -11,8 +11,36 @@ package com.mycompany.banco;
 import java.util.Scanner;
 
 public class Funcionario extends Pessoa{
-    double salario;
-    String mat;
+
+    /**
+     * @return the salario
+     */
+    public double getSalario() {
+        return salario;
+    }
+
+    /**
+     * @param salario the salario to set
+     */
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    /**
+     * @return the mat
+     */
+    public String getMat() {
+        return mat;
+    }
+
+    /**
+     * @param mat the mat to set
+     */
+    public void setMat(String mat) {
+        this.mat = mat;
+    }
+    protected double salario;
+    protected String mat;
     
     public Funcionario() {
         super(); // Chama o construtor padrão de Pessoa
@@ -33,6 +61,6 @@ public class Funcionario extends Pessoa{
     }
     
     double bonificacao() {
-        return this.salario*0.1;
+        return this.getSalario()*0.1;
     }
 }

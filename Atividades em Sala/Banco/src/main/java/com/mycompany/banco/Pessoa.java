@@ -12,10 +12,66 @@ package com.mycompany.banco;
 import java.util.Scanner;
 
 public class Pessoa {
-    String nome ;
-    Data dtNasc ;
-    char sexo ;
-    String cpf ;
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the dtNasc
+     */
+    public Data getDtNasc() {
+        return dtNasc;
+    }
+
+    /**
+     * @param dtNasc the dtNasc to set
+     */
+    public void setDtNasc(Data dtNasc) {
+        this.dtNasc = dtNasc;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public char getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    protected String nome ;
+    protected Data dtNasc ;
+    protected char sexo ;
+    protected String cpf ;
     
     Pessoa(){
         Scanner s = new Scanner(System.in);
@@ -45,9 +101,9 @@ public class Pessoa {
     }
     
     int calcularIdade(Data dataAtual) {
-        int idade = dataAtual.ano - this.dtNasc.ano;
+        int idade = dataAtual.getAno() - this.getDtNasc().getAno();
 
-        if (dataAtual.mes < this.dtNasc.mes || (dataAtual.mes == this.dtNasc.mes && dataAtual.dia < this.dtNasc.dia)) {
+        if (dataAtual.getMes() < this.getDtNasc().getMes() || (dataAtual.getMes() == this.getDtNasc().getMes() && dataAtual.getDia() < this.getDtNasc().getDia())) {
             idade--;
         }
 

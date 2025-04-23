@@ -11,8 +11,18 @@ package com.mycompany.banco;
 
 import java.util.Scanner;
 
-public class Gerente extends Funcionario{
-    String senha;
+public class Gerente extends Funcionario{    
+    
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String atual, String senha) {
+        if (atual.equals(this.senha)){
+            this.senha = senha;
+        }
+        
+    }
+    private String senha;
        
     public Gerente() {
         super(); // Chama o construtor padrão de Funcionario
@@ -29,7 +39,7 @@ public class Gerente extends Funcionario{
     }
     
     double bonificacao(){
-        return this.salario*0.15;
+        return this.getSalario()*0.15;
     }
     
     boolean validarAcesso(String s){

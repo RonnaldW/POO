@@ -46,20 +46,20 @@ public class Banco {
         Data dataCriacao = new Data(10, 10, 2023); 
 
         ContaCorrente conta1 = new ContaCorrente("12345-6", pessoa1, dataCriacao, gerente1);
-        conta1.saldo = 1000.0; 
+        conta1.setSaldo(1000.0); 
 
         ContaCorrente conta2 = new ContaCorrente("65432-1", pessoa3, dataCriacao, gerente2);
-        conta2.saldo = -50.0; 
+        conta2.setSaldo(-50.0); 
 
         // Criando 2 objetos da classe Poupanca
         
         Data dataCriacaoPoupanca = new Data(10, 10, 2023); 
 
         Poupanca contaPoupanca1 = new Poupanca("98765-4", pessoa2, dataCriacaoPoupanca, gerente1);
-        contaPoupanca1.saldo = 2000.0; 
+        contaPoupanca1.setSaldo(2000.0); 
 
         Poupanca contaPoupanca2 = new Poupanca("45678-9", pessoa4, dataCriacaoPoupanca, gerente2);
-        contaPoupanca2.saldo = 500.0; 
+        contaPoupanca2.setSaldo(500.0); 
 
 
     }

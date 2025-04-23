@@ -9,7 +9,21 @@ package com.mycompany.banco;
  * @author Ronnald
  */
 public class ContaCorrente extends Conta {
-    double limite;
+
+    /**
+     * @return the limite
+     */
+    public double getLimite() {
+        return limite;
+    }
+
+    /**
+     * @param limite the limite to set
+     */
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+    private double limite;
 
     // Construtor com quatro parâmetros
     public ContaCorrente(String n, Pessoa t, Data c, Gerente g) {
@@ -17,19 +31,19 @@ public class ContaCorrente extends Conta {
         this.limite = 200; // Define o limite específico para contas correntes
     }
     
-    double disponivel(){
-        return this.saldo + this.limite;
+    public double disponivel(){
+        return this.getSaldo() + this.getLimite();
     }
     
-    void extrato(){
-        System.out.println("ESTRATO DA CONTA-CORRENTE");
+    public void extrato(){
+        System.out.println("EXTRATO DA CONTA-CORRENTE");
         super.extrato();
     }
 
     
-    void chequeEspecial (double juro){
-        if(this.saldo < 0){
-            this.saldo = this.saldo + (juro*this.saldo)/100;
+    public void chequeEspecial (double juro){
+        if(this.getSaldo() < 0){
+            this.setSaldo(this.getSaldo() + (juro * this.getSaldo()) / 100);
         }
     }
     
