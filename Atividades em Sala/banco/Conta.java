@@ -8,6 +8,7 @@ package com.mycompany.banco;
  *
  * @author Ronnald
  */
+import java.util.Scanner;
 public class Conta {
 
     /**
@@ -85,9 +86,37 @@ public class Conta {
     protected Data criacao;
     protected Gerente gerente;
 
+    public Conta(Pessoa t, Gerente g){
+       Scanner s = new Scanner(System.in);
+       
+       System.out.println("Digite o numero");
+       this.setNumero(s.nextLine());
+       
+       this.setTitular(t);
+       
+       this.setSaldo(0);
+       
+       System.out.println("Digite a data de criacao: ");
+       this.setCriacao(new Data());
+       
+       this.setGerente(g);
+    }
     
     public Conta(Gerente g){
-       //Solicitar os outros atributos e criar um novo objeto para armazenar o titular da conta. Apenas o saldo nao deve ser informado, pois começa zerado. 
+       Scanner s = new Scanner(System.in);
+       
+       System.out.println("Digite o numero");
+       this.setNumero(s.nextLine());
+       
+       System.out.println("Digite os dados do titular:");
+       this.setTitular(new Pessoa());
+       
+       this.setSaldo(0);
+       
+       System.out.println("Digite a data de criacao: ");
+       this.setCriacao(new Data());
+       
+       this.setGerente(g);
     }
     
     // Construtor com quatro parâmetros
@@ -109,6 +138,14 @@ public class Conta {
         System.out.println("Novo saldo: R$" + this.getSaldo());
     }
     
+    public void depositar(){
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Qual valor será depositado?");
+        double v = s.nextDouble();
+        this.depositar(v);
+    }
+    
     public void extrato(){
         System.out.println("Conta: " + this.getNumero());
         System.out.println("Saldo disponível para saque: " + this.disponivel() + "\n");
@@ -125,6 +162,14 @@ public class Conta {
     }
     }
     
+    public void sacar() {
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Qual valor será sacado?");
+        double v = s.nextDouble();
+        this.sacar(v);
+    }
+    
     public void transferir(double valor, Conta destino) {
         if (valor <= this.disponivel()) {
             this.sacar(valor);
@@ -135,6 +180,14 @@ public class Conta {
             System.out.println("Erro: não foi possível transferir R$" + valor);
             System.out.println("Valor disponivel para transferencia: R$" + this.disponivel());
         }
+    }
+    
+    public boolean transferir(Conta destino){
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Qual valor será transferido?");
+        double v = s.nextDouble();
+        this.transferir(v, destino);
     }
     
 }

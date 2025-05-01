@@ -10,8 +10,12 @@ package com.mycompany.banco;
  */
 public class Poupanca extends Conta{
     
-    public Poupanca(String n, Pessoa t, Data c, Gerente g){
-        super(n, t, c, g); // Passa os parâmetros corretos para o construtor da classe pai
+    public Poupanca(Gerente g){
+        super(g); // Passa os parâmetros corretos para o construtor da classe pai
+    }
+    
+    public Poupanca(Pessoa t, Gerente g){
+        super(t, g); // Passa os parâmetros corretos para o construtor da classe pai
     }
     
     public void extrato(){

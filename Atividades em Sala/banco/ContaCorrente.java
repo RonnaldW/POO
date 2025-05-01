@@ -26,8 +26,13 @@ public class ContaCorrente extends Conta {
     private double limite;
 
     // Construtor com quatro parâmetros
-    public ContaCorrente(String n, Pessoa t, Data c, Gerente g) {
-        super(n, t, c, g); // Chama o construtor da classe pai com os quatro argumentos
+    public ContaCorrente(Gerente g) {
+        super(g); // Chama o construtor da classe pai com os quatro argumentos
+        this.limite = 200; // Define o limite específico para contas correntes
+    }
+    
+    public ContaCorrente(Pessoa t,Gerente g) {
+        super(t, g); // Chama o construtor da classe pai com os quatro argumentos
         this.limite = 200; // Define o limite específico para contas correntes
     }
     
